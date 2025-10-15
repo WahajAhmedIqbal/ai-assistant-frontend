@@ -31,11 +31,9 @@ function App() {
         body: JSON.stringify(newMsg),
       });
 
-      setTimeout(async () => {
         const data = await res.json();
         setMessages((prev) => [...prev.slice(0, -1), data]); // replace last message with real response
         setTask("");
-      }, 1000);
     } catch (err) {
       console.error("Error sending task:", err);
     }
