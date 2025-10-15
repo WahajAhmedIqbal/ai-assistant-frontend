@@ -11,7 +11,7 @@ function App() {
   // 🔹 Fetch all past logs on mount
   useEffect(() => {
     // fetch("http://localhost:3000/api/tasks")
-    fetch(`${API_URL}/api/tasks`)
+    fetch(`${API_URL}/api/task`)
       .then((res) => res.json())
       .then((data) => setMessages(data))
       .catch((err) => console.error("Error fetching logs:", err));
@@ -25,7 +25,7 @@ function App() {
     setMessages((prev) => [...prev, { task, result: "Thinking..." }]); // temporary placeholder
 
     try {
-      const res = await fetch(`${API_URL}/api/tasks`, {
+      const res = await fetch(`${API_URL}/api/task`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newMsg),
